@@ -22,7 +22,7 @@ io.on('connection', (socket)=>{
 
     socket.on('new_messages', (data)=>{
 
-        messages.push(data.msg)
+        messages.push(data)
 
         io.emit('update_messages', messages)
     })
