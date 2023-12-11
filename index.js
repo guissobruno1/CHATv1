@@ -18,6 +18,7 @@ const io = socketIo(server);
 io.on('connection', (socket)=>{
 
     console.log("New Conecction")
+    socket.emit('update_messages', messages)
 
     socket.on('new_messages', (data)=>{
 

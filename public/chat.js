@@ -11,7 +11,7 @@ function updateMessagesOnScreen(messages){
 
     let list_messages = '<ul>'
     messages.forEach(message => {
-        list_messages += '<li>${message}<li>'
+        list_messages += `<li>${message}</li>`
     });
 
     list_messages += '</ul>'
@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         e.preventDefault();
         const message = document.forms['messageFormName']['msg'].value;
         document.forms['messageFormName']['msg'].value = ''
+        socket.emit('new_messages', { msg: message })
         console.log(message)
     })
 })
